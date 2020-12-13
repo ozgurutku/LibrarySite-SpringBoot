@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Yazar Ekle</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container">
+		<h1>Yazar Bilgileri</h1>
+		<hr>
+
+		<form action="#" th:action="@{/saveYazar}" th:object="${yazar}"
+			method="POST">
+
+			<input type="text" th:field="*{authorName}" placeholder="Yazar İsmi"
+				class="form-control mb-4 col-4" required> <input type="text"
+				th:field="*{declaration}" placeholder="Açıklama"
+				class="form-control mb-4 col-4" required>
+
+			<button type="submit" class="btn btn-info col-2">Yazar Ekle</button>
+		</form>
+	</div>
+</body>
+</html>

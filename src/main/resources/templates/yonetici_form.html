@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Yönetici Sayfası</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<div class="container my-2">
+		<h1>Yönetici işlemleri</h1>
+		<hr>
+
+
+		<div class="row justify-content-center" style="margin-top: 40px;">
+			<div class="col-2">
+				<img src="/picture/BookUpdate.png" alt="Kitap Güncelle" width="65"
+					height="65" class="center"> <a
+					th:href="@{/showFormForKitapUpdate}"
+					class="btn btn-primary btn-smb mb-3 center">Kitap Güncelle</a>
+			</div>
+			<div class="col-2">
+				<img src="/picture/BookList.png" alt="Kitap Listele" width="65"
+					height="65" class="center"> <a th:href="@{/kitapForYonetici}"
+					class="btn btn-primary btn-smb mb-3 center">Kitap Listele</a>
+			</div>
+			<div class="col-2">
+				<img src="/picture/BookDelete.png" alt="Kitap Sil" width="65"
+					height="65" class="center"> <a
+					th:href="@{/showFormForDeleteKitap}"
+					class="btn btn-primary btn-smb mb-3 center">Kitap Sil</a>
+			</div>
+		</div>
+
+		<div class="row justify-content-center" style="margin-top: 40px;">
+			<div class="col-2">
+				<img src="/picture/BookAdd.png" alt="Kitap Ekle" width="65"
+					height="65" class="center"> <a th:href="@{/showNewKitapForm}"
+					class="btn btn-primary btn-smb mb-3 center">Kitap Ekle</a>
+			</div>
+			<div class="col-2">
+				<img src="/picture/BookSearch.png" alt="Kitap Ara" width="65"
+					height="65" class="center"> <a th:href="@{/kitapSearchForm}"
+					class="btn btn-primary btn-smb mb-3 center">Kitap Ara</a>
+			</div>
+			<div class="col-2">
+				<img src="/picture/MemberDelete.png" alt="Üye Sil" width="65"
+					height="65" class="center"> <a
+					th:href="@{/showFormForDeleteUye}"
+					class="btn btn-primary btn-smb mb-3 center">Üye Sil</a>
+			</div>
+		</div>
+
+		<div class="row justify-content-center" style="margin-top: 40px;">
+			<div class="col-2">
+				<img src="/picture/MemberUpdate.png" alt="Üye Güncelle" width="65"
+					height="65" class="center"> <a
+					th:href="@{/showFormForUyeUpdate}"
+					class="btn btn-primary btn-smb mb-3 center">Üye Güncelle</a>
+			</div>
+			<div class="col-2">
+				<img src="/picture/Author.png" alt="Yazar Ekle" width="65"
+					height="65" class="center"> <a th:href="@{/saveYazar}"
+					class="btn btn-primary btn-smb mb-3 center">Yazar Ekle</a>
+			</div>
+			<div class="col-2">
+				<img src="/picture/Publisher.png" alt="Yayınevi Ekle" width="65"
+					height="65" class="center"> <a th:href="@{/saveYayinEvi}"
+					class="btn btn-primary btn-smb mb-3 center">Yayınevi Ekle</a>
+			</div>
+		</div>
+		<div class="row justify-content-center" style="margin-top: 40px;">
+			<div class="col-2">
+				<img src="/picture/AuthorList.png" alt="Yazar Listesi" width="65"
+					height="65" class="center"> <a th:href="@{/yazar}"
+					class="btn btn-primary btn-smb mb-3 center">Yazar Listesi</a>
+			</div>
+			<div class="col-2">
+				<img src="/picture/PublisherList.png" alt="Yayın Evi Listesi"
+					width="65" height="65" class="center"> <a
+					th:href="@{/yayinevi}" class="btn btn-primary btn-smb mb-3 center">Yayın
+					Evi Listesi</a>
+			</div>
+			<div class="col-2"></div>
+		</div>
+	</div>
+</body>
+</html>

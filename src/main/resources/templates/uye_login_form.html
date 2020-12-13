@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Üye Girişi</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container">
+		<div class="alert alert-danger" role="alert" th:text="${error}"
+			th:if="${error}"></div>
+		<h1>Üye Giriş</h1>
+		<hr>
+		<form action="#" th:action="@{/showUyePage}" th:object="${uye}"
+			method="POST">
+
+			<input type="text" th:field="*{userName}"
+				placeholder="Üye Kullanıcı Adı" class="form-control mb-4 col-4"
+				required> <input type="text" th:field="*{password}"
+				placeholder="Üye Şifre" class="form-control mb-4 col-4" required>
+
+			<button type="submit" class="btn btn-info col-2">Giriş</button>
+		</form>
+	</div>
+</body>
+</html>

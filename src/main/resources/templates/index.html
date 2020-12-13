@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Kütüphane Ana Sayfa</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+
+
+	<div class="container my-2">
+
+		<div class="row justify-content-center">
+			<div class="col-2">
+				<img src="/picture/LibraryLogo.png" alt="Kütüphane Logosu"
+					width="150" height="150">
+			</div>
+			<div class="col-4 align-self-center">
+				<h1>Kütüphane Uygulaması</h1>
+			</div>
+		</div>
+
+		<div class="row justify-content-center" style="margin-top: 50px;">
+			<div class="col-2">
+				<img src="/picture/AdminLogin.png" alt="Yönetici Giriş" width="65"
+					height="65" class="center"> <a
+					th:href="@{/showYoneticiLoginForm}"
+					class="btn btn-primary btn-smb mb-3 center">Yönetici Giriş</a>
+			</div>
+			<div class="col-2">
+				<img src="/picture/MemberRegister.png" alt="Üye Kayıt" width="65"
+					height="65" class="center"> <a th:href="@{/showNewUyeForm}"
+					class="btn btn-primary btn-smb mb-3 center">Üye Kayıt</a>
+			</div>
+			<div class="col-2">
+				<img src="/picture/MemberLogin.png" alt="Üye Giriş" width="65"
+					height="65" class="center"> <a th:href="@{/showUyeLoginForm}"
+					class="btn btn-primary btn-smb mb-3 center">Üye Giriş</a>
+			</div>
+		</div>
+
+
+	</div>
+
+	<footer class="page-footer font-small teal pt-4 bg-light">
+
+
+		<div class="container-fluid text-center text-md-left"></div>
+
+		<div class="footer-copyright text-center py-3">
+			Github: <a href="https://github.com/ozgurutku" target="_blank"> Özgür Sadık Utku</a>
+		</div>
+
+
+	</footer>
+</body>
+
+</html>

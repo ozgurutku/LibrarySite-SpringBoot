@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Kitap Güncelleme</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container">
+		<h1>Kitap Güncelleme</h1>
+		<hr>
+
+		<form action="#" th:action="@{/saveKitap}" th:object="${kitap}"
+			method="POST">
+
+			<input type="text" th:field="*{id}" th:readonly="readonly"
+				class="form-control mb-4 col-4" /> <input type="text"
+				th:field="*{bookName}" class="form-control mb-4 col-4" required>
+
+			<input type="text" th:field="*{bookSubname}"
+				class="form-control mb-4 col-4" required> <input type="text"
+				th:field="*{bookSeriesName}" class="form-control mb-4 col-4"
+				required> <input type="text" th:field="*{author}"
+				class="form-control mb-4 col-4" required> <input type="text"
+				th:field="*{publisher}" class="form-control mb-4 col-4" required>
+
+			<input type="text" th:field="*{isbnNo}"
+				class="form-control mb-4 col-4" required> <input type="text"
+				th:field="*{declaration}" class="form-control mb-4 col-4" required>
+
+			<button type="submit" class="btn btn-info col-2">Kitap
+				Güncelle</button>
+		</form>
+
+		<hr>
+	</div>
+</body>
+</html>

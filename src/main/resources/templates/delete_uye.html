@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Üye Sil</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container my-2">
+		<h1>Üye Listesi</h1>
+		<hr>
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>Üye ad</th>
+					<th>Üye kullanıcı adı</th>
+					<th>Üye password</th>
+					<th>Üye email</th>
+					<th>İşlem</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="uye : ${listUye}">
+					<td th:text="${uye.name}"></td>
+					<td th:text="${uye.userName}"></td>
+					<td th:text="${uye.password}"></td>
+					<td th:text="${uye.email}"></td>
+					<td><a th:href="@{/deleteUye/{id}(id=${uye.id})}"
+						class="btn btn-danger">Sil</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

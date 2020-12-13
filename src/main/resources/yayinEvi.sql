@@ -1,0 +1,3 @@
+INSERT INTO publisher (publisher_name,declaration) VALUES ('İş Bankası Kültür Yayınları','Türkiye İş Bankası Kültür Yayınları, 1956 yılında Hasan Âli Yücel tarafından kuruldu.');
+INSERT INTO publisher (publisher_name,declaration) VALUES ('Dex','Doğan Kitap’ın alt markası olan DEX iddialı portföyü ile yayın hayatına 2011 yılının ilk ayında başladı.');
+INSERT INTO publisher (publisher_name,declaration) VALUES ('Panama','2009 yılında Ankara’da kurulan Panama Yayıncılık, genç ve dinamik bir kuruluş olmanın getirisiyle, geniş bir yelpazeye yayılan eserleri Türk okuyucusuyla buluşturmaktadır.');
