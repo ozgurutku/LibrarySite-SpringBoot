@@ -1,15 +1,15 @@
 # Spring Boot Intern Project
 
-#### Projenin Özelikleri
-* Yazar Tanımı yapılabilmeli ( Yazar Adı, Açıklama )
-* Yayın Evi Tanımı yapılabilmeli ( Yayın Evi Adı, Açıklama )
-* Kitap tanıtımı yapılabilmeli ( kitap adı, kitap alt adı, kitap seri adı, yazar, yayın evi, isbn numarası, açıklama )
-* Bir Yazar için n tane kitap tanımlanabilmeli
-* Bir Yayın evi için n tane kitap tanımlanabilmeli
-* Kitap adı, Seri adı, Yazar ya da ISBN ile arama yapılabilmeli
-* Var olan bir kayıt üzerinde değişiklik yapılabilmeli
-* Var olan kayıtlar incelebilmeli
-* Var olan bir kayıt silinebilmeli
+#### Project Features
+Author Definition can be made. (Author Name, Description)
+Publisher Definition can be made. (Publisher Name, Description)
+The book can be promoted. (book title, book sub-name, book series name, author, publisher, isbn number, description)
+N books can be defined for an Author.
+N books can be defined for a Publisher.
+It can be searched by the name of the book.
+Changes can be made to an existing record.
+Existing records can be reviewed.
+An existing record can be deleted.
 
 **Dependencies:** Java 11.0.9, Maven, MySQL 8.0.22
 
