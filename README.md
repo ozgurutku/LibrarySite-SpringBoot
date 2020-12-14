@@ -19,7 +19,7 @@ $ mysql -u root -p -e "create database kutuphane";
 ```
 
 ### Default Database Configuration
-You can change these settings in the application.properties file. If you do not edit these properties, you will encounter an error in the **Install dependencies**  step.
+You can change these settings in the **application.properties** file. If you do not edit these properties, you will encounter an **error** in the **Install dependencies**  step.
 
 `spring.datasource.url = jdbc:mysql://localhost:3306/kutuphane?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false`
 
