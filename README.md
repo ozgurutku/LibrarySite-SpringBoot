@@ -1,15 +1,15 @@
 # Spring Boot Intern Project
 
 #### Project Features
-Author Definition can be made. (Author Name, Description)
-Publisher Definition can be made. (Publisher Name, Description)
-The book can be promoted. (book title, book sub-name, book series name, author, publisher, isbn number, description)
-N books can be defined for an Author.
-N books can be defined for a Publisher.
-It can be searched by the name of the book.
-Changes can be made to an existing record.
-Existing records can be reviewed.
-An existing record can be deleted.
+* Author Definition can be made. (Author Name, Description)
+* Publisher Definition can be made. (Publisher Name, Description)
+* The book can be promoted. (book title, book sub-name, book series name, author, publisher, isbn number, description)
+* N books can be defined for an Author.
+* N books can be defined for a Publisher.
+* It can be searched by the name of the book.
+* Changes can be made to an existing record.
+* Existing records can be reviewed.
+* An existing record can be deleted.
 
 **Dependencies:** Java 11.0.9, Maven, MySQL 8.0.22
 
