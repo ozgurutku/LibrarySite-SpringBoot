@@ -17,12 +17,6 @@ public class YoneticiController {
 	@Autowired
 	private YoneticiService yoneticiService;
 
-	@GetMapping("/yonetici")
-	public String viewHomePage(Model model) {
-		model.addAttribute("listYonetici", yoneticiService.getAllYonetici());
-		return "index";
-	}
-
 	@GetMapping("/showYoneticiLoginForm")
 	public String showUyeLoginForm(Model model) {
 		Yonetici yonetici = new Yonetici();
