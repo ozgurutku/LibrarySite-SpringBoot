@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ozgur.kutuphane.model.YayinEvi;
 import com.ozgur.kutuphane.model.Yazar;
 import com.ozgur.kutuphane.repository.YazarRepository;
 
@@ -22,6 +23,16 @@ public class YazarServiceImpl implements YazarService {
 	@Override
 	public void saveYazar(Yazar yazar) {
 		this.yazarRepository.save(yazar);
+	}
+
+	@Override
+	public Yazar getAuthorByName(String authorName) {
+		yazarRepository.findByauthorName(authorName);
+		for (Yazar yazar : yazarRepository.findByauthorName(authorName)) {
+			System.out.println(yazar);
+			return yazar;
+		}
+		return null;
 	}
 
 }

@@ -22,11 +22,17 @@ public class YazarController {
 		return "list_yazar";
 	}
 
-	@RequestMapping("/saveYazar")
-	public String saveUye(@ModelAttribute("yazar") Yazar yazar, Model model) {
+	@GetMapping("/saveYazar")
+	public String saveYazar(Model model) {
 		Yazar newYazar = new Yazar();
 		model.addAttribute("yazar", newYazar);
-		yazarService.saveYazar(yazar);
 		return "new_yazar";
 	}
+	
+	@RequestMapping("/newSaveYazar")
+	public String newSaveYazar(@ModelAttribute("yazar") Yazar yazar) {
+		yazarService.saveYazar(yazar);
+		return "redirect:/saveYazar";
+	}
+	
 }

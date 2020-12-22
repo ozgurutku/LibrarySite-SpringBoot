@@ -1,10 +1,13 @@
 package com.ozgur.kutuphane.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +23,17 @@ public class YayinEvi {
 
 	@Column(name = "declaration")
 	private String declaration;
+	
+	@OneToMany
+    private List<Kitap> kitap;
+
+	public List<Kitap> getKitap() {
+		return kitap;
+	}
+
+	public void setKitap(List<Kitap> kitap) {
+		this.kitap = kitap;
+	}
 
 	public long getId() {
 		return id;

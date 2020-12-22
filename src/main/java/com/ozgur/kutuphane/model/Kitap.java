@@ -1,10 +1,16 @@
 package com.ozgur.kutuphane.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,11 +30,12 @@ public class Kitap {
 	@Column(name = "book_series_name")
 	private String bookSeriesName;
 
-	@Column(name = "author")
-	private String author;
+	@JoinColumn(name = "author_id")
+	@ManyToOne
+	private Yazar author;
 
-	@Column(name = "publisher")
-	private String publisher;
+	@ManyToOne
+	private YayinEvi publisher;
 
 	@Column(name = "isbn_no")
 	private String isbnNo;
@@ -68,24 +75,24 @@ public class Kitap {
 		this.bookSeriesName = bookSeriesName;
 	}
 
-	public String getAuthor() {
+	public String getIsbnNo() {
+		return isbnNo;
+	}
+
+	public Yazar getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(String author) {
+	public void setAuthor(Yazar author) {
 		this.author = author;
 	}
 
-	public String getPublisher() {
+	public YayinEvi getPublisher() {
 		return publisher;
 	}
 
-	public void setPublisher(String publisher) {
+	public void setPublisher(YayinEvi publisher) {
 		this.publisher = publisher;
-	}
-
-	public String getIsbnNo() {
-		return isbnNo;
 	}
 
 	public void setIsbnNo(String isbnNo) {

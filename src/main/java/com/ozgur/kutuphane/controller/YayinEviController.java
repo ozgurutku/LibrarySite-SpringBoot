@@ -22,11 +22,16 @@ public class YayinEviController {
 		return "list_yayin_evi";
 	}
 
-	@RequestMapping("/saveYayinEvi")
-	public String saveUye(@ModelAttribute("yayinEvi") YayinEvi yayinEvi, Model model) {
+	@GetMapping("/saveYayinEvi")
+	public String saveYayinEvi( Model model) {
 		YayinEvi newYayinEvi = new YayinEvi();
 		model.addAttribute("yayinEvi", newYayinEvi);
-		yayinEviService.saveYayinEvi(yayinEvi);
 		return "new_yayinevi";
+	}
+	
+	@RequestMapping("/newSaveYayinEvi")
+	public String newSaveYayinEvi(@ModelAttribute("yayinEvi") YayinEvi yayinEvi) {
+		yayinEviService.saveYayinEvi(yayinEvi);
+		return "redirect:/saveYayinEvi";
 	}
 }

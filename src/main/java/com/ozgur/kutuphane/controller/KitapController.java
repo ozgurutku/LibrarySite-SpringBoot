@@ -10,14 +10,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ozgur.kutuphane.model.Kitap;
+import com.ozgur.kutuphane.model.YayinEvi;
+import com.ozgur.kutuphane.model.Yazar;
 import com.ozgur.kutuphane.service.KitapService;
+import com.ozgur.kutuphane.service.YayinEviService;
+import com.ozgur.kutuphane.service.YazarService;
 
 @Controller
 public class KitapController {
 
 	@Autowired
 	private KitapService kitapService;
-
+	
+	@Autowired
+	private YayinEviService yayinEviService;
+	
+	@Autowired
+	private YazarService yazarService;
+	
 	@GetMapping("/kitapForUye")
 	public String kitapForUye(Model model) {
 		model.addAttribute("listKitap", kitapService.getAllKitap());
@@ -78,12 +88,22 @@ public class KitapController {
 	@GetMapping("/showNewKitapForm")
 	public String showNewKitapForm(Model model) {
 		Kitap kitap = new Kitap();
+		Yazar yazar = new Yazar();
+		YayinEvi yayinEvi = new YayinEvi();
 		model.addAttribute("kitap", kitap);
+		model.addAttribute("author", yazar);
+		model.addAttribute("publisher", yayinEvi);
 		return "new_kitap";
 	}
 
 	@RequestMapping("/saveKitapNew")
-	public String saveUyeForNewKitap(@ModelAttribute("kitap") Kitap kitap) {
+	public String saveUyeForNewKitap(@ModelAttribute("kitap") Kitap kitap,@ModelAttribute("author") Yazar yazar,@ModelAttribute("publisher") YayinEvi yayinEvi) {
+		YayinEvi newyayinEvi = yayinEviService.getYayinEviByName(yayinEvi.getPublisherName());
+		Yazar newYazar=yazarService.getAuthorByName(yazar.getAuthorName());
+		System.out.println(newYazar);
+		System.out.println(newyayinEvi);
+		kitap.setAuthor(newYazar);
+		kitap.setPublisher(newyayinEvi);
 		kitapService.saveKitap(kitap);
 		return "redirect:/showNewKitapForm";
 	}
