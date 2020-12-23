@@ -27,7 +27,7 @@ public class Yazar {
 	@Column(name = "declaration")
 	private String declaration;
 	
-	@OneToMany(mappedBy = "author")
+	@OneToMany(mappedBy = "author",cascade=CascadeType.ALL)
     private List<Kitap> kitap;
 
 	public List<Kitap> getKitap() {

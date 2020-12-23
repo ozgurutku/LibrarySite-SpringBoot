@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ozgur.kutuphane.model.Kitap;
 import com.ozgur.kutuphane.model.YayinEvi;
@@ -97,13 +98,21 @@ public class KitapController {
 	}
 
 	@RequestMapping("/saveKitapNew")
-	public String saveUyeForNewKitap(@ModelAttribute("kitap") Kitap kitap,@ModelAttribute("author") Yazar yazar,@ModelAttribute("publisher") YayinEvi yayinEvi) {
-		YayinEvi newyayinEvi = yayinEviService.getYayinEviByName(yayinEvi.getPublisherName());
+	public String saveUyeForNewKitap(@ModelAttribute("kitap") Kitap kitap,@ModelAttribute("author") Yazar yazar,@ModelAttribute("publisher") YayinEvi yayinEvi,RedirectAttributes redirAttrs) {
+		YayinEvi newYayinEvi = yayinEviService.getYayinEviByName(yayinEvi.getPublisherName());
 		Yazar newYazar=yazarService.getAuthorByName(yazar.getAuthorName());
+		if(newYazar==null) {
+			redirAttrs.addFlashAttribute("error", "Böyle bir yazar bulunamadı,İlk önce yazarı ekleyin");
+			return "redirect:/showNewKitapForm";
+		}
+		if(newYayinEvi==null) {
+			redirAttrs.addFlashAttribute("error", "Böyle bir yayın evi bulunamadı,İlk önce yayın evini ekleyin");
+			return "redirect:/showNewKitapForm";
+		}
 		System.out.println(newYazar);
-		System.out.println(newyayinEvi);
+		System.out.println(newYayinEvi);
 		kitap.setAuthor(newYazar);
-		kitap.setPublisher(newyayinEvi);
+		kitap.getPublisher().add(newYayinEvi);
 		kitapService.saveKitap(kitap);
 		return "redirect:/showNewKitapForm";
 	}

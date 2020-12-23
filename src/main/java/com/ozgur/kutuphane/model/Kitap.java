@@ -1,14 +1,17 @@
 package com.ozgur.kutuphane.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -30,12 +33,17 @@ public class Kitap {
 	@Column(name = "book_series_name")
 	private String bookSeriesName;
 
-	@JoinColumn(name = "author_id")
 	@ManyToOne
+    @JoinTable(name = "BOOK_AUTHOR",
+               joinColumns = @JoinColumn(name = "BOOK_ID"),
+               inverseJoinColumns = @JoinColumn(name = "AUTHOR_ID", nullable = false))
 	private Yazar author;
 
-	@ManyToOne
-	private YayinEvi publisher;
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "BOOK_PUBLİSHER",
+		joinColumns = { @JoinColumn(name = "BOOK_ID")},
+		inverseJoinColumns = { @JoinColumn (name = "PUBLISHER_ID")})
+	private List<YayinEvi> publisher = new ArrayList<YayinEvi>();
 
 	@Column(name = "isbn_no")
 	private String isbnNo;
@@ -87,11 +95,11 @@ public class Kitap {
 		this.author = author;
 	}
 
-	public YayinEvi getPublisher() {
+	public List<YayinEvi> getPublisher() {
 		return publisher;
 	}
 
-	public void setPublisher(YayinEvi publisher) {
+	public void setPublisher(List<YayinEvi> publisher) {
 		this.publisher = publisher;
 	}
 
