@@ -46,7 +46,7 @@ $ java -jar target/kutuphane-0.0.1-SNAPSHOT.jar
 
 ### Usage
 For admin use
-`Admin user name = ozgurutku Admin password = ozgurutku`
+`Admin user name = ozgurutku444@hotmail.com Admin password = ozgurutku`
 
 For member use
 `register as a member`
