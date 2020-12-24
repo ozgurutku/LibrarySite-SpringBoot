@@ -5,16 +5,15 @@
 		<h1>Üye Güncelleme</h1>
 		<hr>
 
-		<form action="#" th:action="@{/yoneticiSaveUye}" th:object="${uye}"
-			method="POST">
+		<form action="#" th:action="@{/yoneticiSaveUye}"
+			th:object="${kullanici}" method="POST">
 
 			<input type="text" th:field="*{id}" th:readonly="readonly"
 				class="form-control mb-4 col-4" /  required> <input
-				type="text" th:field="*{name}" class="form-control mb-4 col-4"
-				required> <input type="text" th:field="*{email}"
+				type="text" th:field="*{firstName}" class="form-control mb-4 col-4"
+				required><input type="text" th:field="*{lastName}"
 				class="form-control mb-4 col-4" required> <input type="text"
-				th:field="*{userName}" class="form-control mb-4 col-4" required>
-
+				th:field="*{email}" class="form-control mb-4 col-4" required>
 			<input type="text" th:field="*{password}"
 				class="form-control mb-4 col-4" required>
 

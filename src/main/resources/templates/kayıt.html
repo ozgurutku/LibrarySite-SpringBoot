@@ -1,0 +1,27 @@
+<html layout:decorate="~{layout}">
+<meta charset="UTF-8">
+<th:block layout:fragment="block">
+	<div class="container">
+		<div th:if="${param.success}">
+					<div class="alert alert-info">You've successfully registered
+						to our awesome app!</div>
+				</div>
+		<h1>Kayıt</h1>
+		<hr>
+		<form action="#" th:action="@{/registration}" th:object="${kullanici}"
+			method="POST">
+
+			<input type="text" th:field="*{firstName}"
+				placeholder="Ad" class="form-control mb-4 col-4"
+				required> <input type="text" th:field="*{lastName}"
+				placeholder="Soyad" class="form-control mb-4 col-4" required>
+			<input type="text" th:field="*{email}"
+				placeholder="Email" class="form-control mb-4 col-4"
+				required> <input type="text" th:field="*{password}"
+				placeholder="Şifre" class="form-control mb-4 col-4"
+				required>
+			<button type="submit" class="btn btn-info col-2">Kayıt ol</button>
+		</form>
+	</div>
+</th:block>
+</html>

@@ -8,19 +8,19 @@
 			<thead>
 				<tr>
 					<th>Üye ad</th>
-					<th>Üye kullanıcı adı</th>
-					<th>Üye password</th>
+					<th>Üye soyadı</th>
 					<th>Üye email</th>
+					<th>Üye password</th>
 					<th>İşlem</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="uye : ${listUye}">
-					<td th:text="${uye.name}"></td>
-					<td th:text="${uye.userName}"></td>
-					<td th:text="${uye.password}"></td>
-					<td th:text="${uye.email}"></td>
-					<td><a th:href="@{/deleteUye/{id}(id=${uye.id})}"
+				<tr th:each="kullanici : ${listKullanici}">
+					<td th:text="${kullanici.firstName}"></td>
+					<td th:text="${kullanici.lastName}"></td>
+					<td th:text="${kullanici.email}"></td>
+					<td th:text="${kullanici.password}"></td>
+					<td><a th:href="@{/deleteUye/{id}(id=${kullanici.id})}"
 						class="btn btn-danger">Sil</a></td>
 				</tr>
 			</tbody>
