@@ -34,14 +34,15 @@
 			</div>
 			<div class="col-2">
 				<img src="/picture/BookSearch.png" alt="Kitap Ara" width="65"
-					height="65" class="center"> <a th:href="@{/kitapSearchForm}"
+					height="65" class="center"> <a
+					th:href="@{/kitapSearchFormForYonetici}"
 					class="btn btn-primary btn-smb mb-3 center">Kitap Ara</a>
 			</div>
 			<div class="col-2">
 				<img src="/picture/MemberDelete.png" alt="Üye Sil" width="65"
 					height="65" class="center"> <a
 					th:href="@{/showFormForDeleteUye}"
-					class="btn btn-primary btn-smb mb-3 center">Üye Sil</a>
+					class="btn btn-primary btn-smb mb-3 center">Kullanıcı Sil</a>
 			</div>
 		</div>
 
@@ -50,7 +51,7 @@
 				<img src="/picture/MemberUpdate.png" alt="Üye Güncelle" width="65"
 					height="65" class="center"> <a
 					th:href="@{/showFormForUyeUpdate}"
-					class="btn btn-primary btn-smb mb-3 center">Üye Güncelle</a>
+					class="btn btn-primary btn-smb mb-3 center">Kullanıcı Güncelle</a>
 			</div>
 			<div class="col-2">
 				<img src="/picture/Author.png" alt="Yazar Ekle" width="65"
@@ -66,16 +67,20 @@
 		<div class="row justify-content-center" style="margin-top: 40px;">
 			<div class="col-2">
 				<img src="/picture/AuthorList.png" alt="Yazar Listesi" width="65"
-					height="65" class="center"> <a th:href="@{/yazar}"
+					height="65" class="center"> <a th:href="@{/yazarForYonetici}"
 					class="btn btn-primary btn-smb mb-3 center">Yazar Listesi</a>
 			</div>
 			<div class="col-2">
 				<img src="/picture/PublisherList.png" alt="Yayın Evi Listesi"
 					width="65" height="65" class="center"> <a
-					th:href="@{/yayinevi}" class="btn btn-primary btn-smb mb-3 center">Yayın
-					Evi Listesi</a>
+					th:href="@{/yayineviForYonetici}"
+					class="btn btn-primary btn-smb mb-3 center">Yayın Evi Listesi</a>
 			</div>
-			<div class="col-2"></div>
+			<div class="col-2">
+				<img src="/picture/Logout.png" alt="Çıkış" width="65" height="65"
+					class="center"> <a th:href="@{/logout}"
+					class="btn btn-primary btn-smb mb-3 center">Çıkış</a>
+			</div>
 		</div>
 	</div>
 </th:block>

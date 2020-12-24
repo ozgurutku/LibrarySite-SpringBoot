@@ -1,4 +1,4 @@
-package com.ozgur.kutuphane.controller;
+package com.ozgur.kutuphane.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,13 +22,13 @@ public class KitapController {
 
 	@Autowired
 	private KitapService kitapService;
-	
+
 	@Autowired
 	private YayinEviService yayinEviService;
-	
+
 	@Autowired
 	private YazarService yazarService;
-	
+
 	@GetMapping("/kitapForUye")
 	public String kitapForUye(Model model) {
 		model.addAttribute("listKitap", kitapService.getAllKitap());
@@ -41,18 +41,32 @@ public class KitapController {
 		return "list_kitap";
 	}
 
-	@RequestMapping("/kitapSearchForm")
-	public String kitapSearch(Model model) {
+	@RequestMapping("/kitapSearchFormForUye")
+	public String kitapSearchFormForUye(Model model) {
 		Kitap kitap = new Kitap();
 		model.addAttribute("kitap", kitap);
-		return "search_kitap_form";
+		return "search_kitap_form_uye";
 	}
 
-	@RequestMapping("/kitapSearch")
-	public String kitapSearchClick(@ModelAttribute("kitap") Kitap kitap, Model model) {
+	@RequestMapping("/kitapSearchFormForYonetici")
+	public String kitapSearchFormForYonetici(Model model) {
+		Kitap kitap = new Kitap();
+		model.addAttribute("kitap", kitap);
+		return "search_kitap_form_yonetici";
+	}
+
+	@RequestMapping("/kitapSearchForYonetici")
+	public String kitapSearchForYonetici(@ModelAttribute("kitap") Kitap kitap, Model model) {
 		Kitap findKitap = kitapService.getKitapByName(kitap.getBookName());
 		model.addAttribute("findKitap", findKitap);
-		return "search_kitap_form";
+		return "search_kitap_form_yonetici";
+	}
+
+	@RequestMapping("/kitapSearchForUye")
+	public String kitapSearchForUye(@ModelAttribute("kitap") Kitap kitap, Model model) {
+		Kitap findKitap = kitapService.getKitapByName(kitap.getBookName());
+		model.addAttribute("findKitap", findKitap);
+		return "search_kitap_form_uye";
 	}
 
 	@RequestMapping("/showFormForKitapUpdate")
@@ -98,14 +112,15 @@ public class KitapController {
 	}
 
 	@RequestMapping("/saveKitapNew")
-	public String saveUyeForNewKitap(@ModelAttribute("kitap") Kitap kitap,@ModelAttribute("author") Yazar yazar,@ModelAttribute("publisher") YayinEvi yayinEvi,RedirectAttributes redirAttrs) {
+	public String saveUyeForNewKitap(@ModelAttribute("kitap") Kitap kitap, @ModelAttribute("author") Yazar yazar,
+			@ModelAttribute("publisher") YayinEvi yayinEvi, RedirectAttributes redirAttrs) {
 		YayinEvi newYayinEvi = yayinEviService.getYayinEviByName(yayinEvi.getPublisherName());
-		Yazar newYazar=yazarService.getAuthorByName(yazar.getAuthorName());
-		if(newYazar==null) {
+		Yazar newYazar = yazarService.getAuthorByName(yazar.getAuthorName());
+		if (newYazar == null) {
 			redirAttrs.addFlashAttribute("error", "Böyle bir yazar bulunamadı,İlk önce yazarı ekleyin");
 			return "redirect:/showNewKitapForm";
 		}
-		if(newYayinEvi==null) {
+		if (newYayinEvi == null) {
 			redirAttrs.addFlashAttribute("error", "Böyle bir yayın evi bulunamadı,İlk önce yayın evini ekleyin");
 			return "redirect:/showNewKitapForm";
 		}
@@ -116,4 +131,5 @@ public class KitapController {
 		kitapService.saveKitap(kitap);
 		return "redirect:/showNewKitapForm";
 	}
+
 }

@@ -1,8 +1,8 @@
 <html layout:decorate="~{layout}">
 <meta charset="UTF-8">
 <th:block layout:fragment="block">
-<div class="alert alert-danger" role="alert" th:text="${error}"
-			th:if="${error}"></div>
+	<div class="alert alert-danger" role="alert" th:text="${error}"
+		th:if="${error}"></div>
 	<div class="container">
 		<h1>Kitap Bilgileri</h1>
 		<hr>
@@ -18,9 +18,9 @@
 				class="form-control mb-4 col-4" required> <input type="text"
 				th:object="${author}" th:field="*{authorName}" placeholder="Yazar"
 				class="form-control mb-4 col-4" required> <input type="text"
-				th:object="${publisher}" th:field="*{publisherName}" placeholder="Yayın Evi"
-				class="form-control mb-4 col-4" required> <input type="text"
-				th:field="*{isbnNo}" placeholder="İsbn numarası"
+				th:object="${publisher}" th:field="*{publisherName}"
+				placeholder="Yayın Evi" class="form-control mb-4 col-4" required>
+			<input type="text" th:field="*{isbnNo}" placeholder="İsbn numarası"
 				class="form-control mb-4 col-4" required> <input type="text"
 				th:field="*{declaration}" placeholder="Açıklama"
 				class="form-control mb-4 col-4" required>

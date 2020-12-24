@@ -1,4 +1,4 @@
-package com.ozgur.kutuphane.controller;
+package com.ozgur.kutuphane.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,8 +16,8 @@ public class YazarController {
 	@Autowired
 	private YazarService yazarService;
 
-	@GetMapping("/yazar")
-	public String viewHomePage(Model model) {
+	@GetMapping("/yazarForUye")
+	public String yazarForUye(Model model) {
 		model.addAttribute("listYazar", yazarService.getAllYazar());
 		return "list_yazar";
 	}
@@ -28,11 +28,17 @@ public class YazarController {
 		model.addAttribute("yazar", newYazar);
 		return "new_yazar";
 	}
-	
+
 	@RequestMapping("/newSaveYazar")
 	public String newSaveYazar(@ModelAttribute("yazar") Yazar yazar) {
 		yazarService.saveYazar(yazar);
 		return "redirect:/saveYazar";
 	}
-	
+
+	@GetMapping("/yazarForYonetici")
+	public String yazarForYonetici(Model model) {
+		model.addAttribute("listYazar", yazarService.getAllYazar());
+		return "list_yazar";
+	}
+
 }

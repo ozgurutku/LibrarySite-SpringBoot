@@ -1,7 +1,7 @@
-package com.ozgur.kutuphane.web;
+package com.ozgur.kutuphane.web.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,12 +15,12 @@ import com.ozgur.kutuphane.web.dto.KullaniciRegistrationDto;
 public class KullaniciRegistrationController {
 
 	private KullaniciService kullaniciService;
-	
+
 	public KullaniciRegistrationController(KullaniciService kullaniciService) {
 		super();
 		this.kullaniciService = kullaniciService;
 	}
-	
+
 	@ModelAttribute("kullanici")
 	public KullaniciRegistrationDto userRegistrationDto() {
 		return new KullaniciRegistrationDto();
@@ -28,12 +28,16 @@ public class KullaniciRegistrationController {
 
 	@GetMapping
 	public String showKayıtForm() {
-		return "kayıt";
+		return "new_user";
 	}
 
 	@PostMapping
 	public String registerKullaniciAccount(@ModelAttribute("user") KullaniciRegistrationDto registrationDto) {
-		kullaniciService.save(registrationDto);
+		try {
+			kullaniciService.save(registrationDto);
+		} catch (Exception constraintViolationException) {
+			return "redirect:/registration?error";
+		}
 		return "redirect:/registration?success";
 	}
 }

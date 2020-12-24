@@ -5,11 +5,9 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,9 +24,9 @@ public class Yazar {
 
 	@Column(name = "declaration")
 	private String declaration;
-	
-	@OneToMany(mappedBy = "author",cascade=CascadeType.ALL)
-    private List<Kitap> kitap;
+
+	@OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+	private List<Kitap> kitap;
 
 	public List<Kitap> getKitap() {
 		return kitap;
@@ -60,6 +58,11 @@ public class Yazar {
 
 	public void setDeclaration(String declaration) {
 		this.declaration = declaration;
+	}
+
+	@Override
+	public String toString() {
+		return "" + authorName + "";
 	}
 
 }

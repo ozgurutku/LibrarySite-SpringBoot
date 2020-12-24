@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ozgur.kutuphane.model.Kitap;
 import com.ozgur.kutuphane.model.YayinEvi;
 import com.ozgur.kutuphane.repository.YayinEviRepostiory;
 
@@ -47,7 +46,5 @@ public class YayinEviServiceImpl implements YayinEviService {
 		}
 		return null;
 	}
-	
-	
 
 }

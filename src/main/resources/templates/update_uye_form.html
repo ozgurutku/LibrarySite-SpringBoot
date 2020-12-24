@@ -2,7 +2,7 @@
 <meta charset="UTF-8">
 <th:block layout:fragment="block">
 	<div class="container my-2">
-		<h1>Üye Listesi</h1>
+		<h1>Kullanıcı Listesi</h1>
 		<hr>
 		<table border="1" class="table table-striped table-responsive-md">
 			<thead>
@@ -20,7 +20,8 @@
 					<td th:text="${kullanici.lastName}"></td>
 					<td th:text="${kullanici.email}"></td>
 					<td th:text="${kullanici.password}"></td>
-					<td><a th:href="@{/showFormForUyeUpdate/{id}(id=${kullanici.id})}"
+					<td><a
+						th:href="@{/showFormForUyeUpdate/{id}(id=${kullanici.id})}"
 						class="btn btn-danger">Güncelle</a></td>
 
 				</tr>

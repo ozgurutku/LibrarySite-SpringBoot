@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,9 +25,9 @@ public class YayinEvi {
 
 	@Column(name = "declaration")
 	private String declaration;
-	
+
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "publisher")
-    private List<Kitap> kitap;
+	private List<Kitap> kitap;
 
 	public List<Kitap> getKitap() {
 		return kitap;
@@ -60,6 +59,11 @@ public class YayinEvi {
 
 	public void setDeclaration(String declaration) {
 		this.declaration = declaration;
+	}
+
+	@Override
+	public String toString() {
+		return "" + publisherName + "";
 	}
 
 }

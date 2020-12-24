@@ -1,4 +1,5 @@
 package com.ozgur.kutuphane.service;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.Arrays;
@@ -21,16 +22,16 @@ import com.ozgur.kutuphane.web.dto.KullaniciRegistrationDto;
 @Service
 public class KullaniciServiceImpl implements KullaniciService {
 
-	private KullaniciRepository kullaniciRepository;
-
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
+
+	private KullaniciRepository kullaniciRepository;
 
 	public KullaniciServiceImpl(KullaniciRepository kullaniciRepository) {
 		super();
 		this.kullaniciRepository = kullaniciRepository;
 	}
-	
+
 	@Override
 	public Kullanici getKullaniciById(long id) {
 		Optional<Kullanici> optional = kullaniciRepository.findById(id);
@@ -47,7 +48,7 @@ public class KullaniciServiceImpl implements KullaniciService {
 	public void deleteKullaniciById(long id) {
 		kullaniciRepository.deleteById(id);
 	}
-	
+
 	@Override
 	public List<Kullanici> getAllKullanici() {
 		return kullaniciRepository.findAll();
@@ -55,7 +56,10 @@ public class KullaniciServiceImpl implements KullaniciService {
 
 	@Override
 	public void saveKullanici(Kullanici kullanici) {
-		this.kullaniciRepository.save(kullanici);
+		Kullanici updateKullanici = new Kullanici(kullanici.getFirstName(), kullanici.getLastName(),
+				kullanici.getEmail(), kullanici.getPassword(), Arrays.asList(new Rol("ROLE_USER")));
+		kullaniciRepository.delete(kullanici);
+		this.kullaniciRepository.save(updateKullanici);
 	}
 
 	@Override

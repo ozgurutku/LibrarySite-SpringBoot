@@ -34,15 +34,12 @@ public class Kitap {
 	private String bookSeriesName;
 
 	@ManyToOne
-    @JoinTable(name = "BOOK_AUTHOR",
-               joinColumns = @JoinColumn(name = "BOOK_ID"),
-               inverseJoinColumns = @JoinColumn(name = "AUTHOR_ID", nullable = false))
+	@JoinTable(name = "BOOK_AUTHOR", joinColumns = @JoinColumn(name = "BOOK_ID"), inverseJoinColumns = @JoinColumn(name = "AUTHOR_ID", nullable = false))
 	private Yazar author;
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "BOOK_PUBLİSHER",
-		joinColumns = { @JoinColumn(name = "BOOK_ID")},
-		inverseJoinColumns = { @JoinColumn (name = "PUBLISHER_ID")})
+	@JoinTable(name = "BOOK_PUBLİSHER", joinColumns = { @JoinColumn(name = "BOOK_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "PUBLISHER_ID") })
 	private List<YayinEvi> publisher = new ArrayList<YayinEvi>();
 
 	@Column(name = "isbn_no")

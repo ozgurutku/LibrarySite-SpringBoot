@@ -1,4 +1,4 @@
-package com.ozgur.kutuphane.controller;
+package com.ozgur.kutuphane.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,22 +16,28 @@ public class YayinEviController {
 	@Autowired
 	private YayinEviService yayinEviService;
 
-	@GetMapping("/yayinevi")
-	public String viewHomePage(Model model) {
+	@GetMapping("/yayineviForUye")
+	public String yayineviForUye(Model model) {
 		model.addAttribute("listYayinEvi", yayinEviService.getAllYayinEvi());
 		return "list_yayin_evi";
 	}
 
 	@GetMapping("/saveYayinEvi")
-	public String saveYayinEvi( Model model) {
+	public String saveYayinEvi(Model model) {
 		YayinEvi newYayinEvi = new YayinEvi();
 		model.addAttribute("yayinEvi", newYayinEvi);
 		return "new_yayinevi";
 	}
-	
+
 	@RequestMapping("/newSaveYayinEvi")
 	public String newSaveYayinEvi(@ModelAttribute("yayinEvi") YayinEvi yayinEvi) {
 		yayinEviService.saveYayinEvi(yayinEvi);
 		return "redirect:/saveYayinEvi";
+	}
+
+	@GetMapping("/yayineviForYonetici")
+	public String yayineviForYonetici(Model model) {
+		model.addAttribute("listYayinEvi", yayinEviService.getAllYayinEvi());
+		return "list_yayin_evi";
 	}
 }

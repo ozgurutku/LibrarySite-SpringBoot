@@ -1,0 +1,24 @@
+<html layout:decorate="~{layout}">
+<meta charset="UTF-8">
+<th:block layout:fragment="block">
+	<div class="container">
+		<h1>Kitap arama</h1>
+		<hr>
+		<form action="#" th:action="@{/kitapSearchForYonetici}"
+			th:object="${kitap}" method="POST">
+
+			<input type="text" th:field="*{bookName}" placeholder="Kitap Adı"
+				class="form-control mb-4 col-4" required>
+
+			<button type="submit" class="btn btn-info col-2">Kitap ara</button>
+			<h1></h1>
+		</form>
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead th:replace="table.html :: fields(theadFields)">
+			</thead>
+			<tbody th:replace="table.html :: tableBody(listKitap=${findKitap})">
+			</tbody>
+		</table>
+	</div>
+</th:block>
+</html>

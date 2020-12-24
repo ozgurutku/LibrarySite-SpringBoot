@@ -16,7 +16,7 @@ import javax.persistence.UniqueConstraint;
 import javax.persistence.JoinColumn;
 
 @Entity
-@Table(name =  "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Kullanici {
 
 	@Id
@@ -39,7 +39,7 @@ public class Kullanici {
 	private Collection<Rol> roller;
 
 	public Kullanici() {
-		
+
 	}
 
 	public Kullanici(String firstName, String lastName, String email, String password, Collection<Rol> roller) {

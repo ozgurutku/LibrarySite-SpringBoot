@@ -13,14 +13,14 @@ public class Rol {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	
+
 	public Rol(String name) {
 		super();
-		this.name=name;
+		this.name = name;
 	}
-	
+
 	public Rol() {
-		
+
 	}
 
 	public Long getId() {

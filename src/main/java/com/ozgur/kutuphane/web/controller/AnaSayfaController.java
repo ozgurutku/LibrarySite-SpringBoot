@@ -1,11 +1,10 @@
-package com.ozgur.kutuphane.controller;
+package com.ozgur.kutuphane.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class AnaSayfaController {
@@ -27,12 +26,12 @@ public class AnaSayfaController {
 		}
 		return "redirect:/showUyePage";
 	}
-	
+
 	@RequestMapping("/showYoneticiPage")
 	public String showYoneticiLoginValidation() {
 		return "yonetici_form";
 	}
-	
+
 	@RequestMapping("/showUyePage")
 	public String showUyeLoginValidation() {
 		return "uye_form";

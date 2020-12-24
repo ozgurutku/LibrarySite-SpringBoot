@@ -8,8 +8,8 @@ public interface YayinEviService {
 	List<YayinEvi> getAllYayinEvi();
 
 	void saveYayinEvi(YayinEvi yayınEvi);
-	
+
 	YayinEvi getYayinEviById(long id);
-	
+
 	YayinEvi getYayinEviByName(String publisherName);
 }

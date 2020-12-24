@@ -5,8 +5,8 @@
 		<h1>Yayın Evi Bilgileri</h1>
 		<hr>
 
-		<form action="#" th:action="@{/newSaveYayinEvi}" th:object="${yayinEvi}"
-			method="POST">
+		<form action="#" th:action="@{/newSaveYayinEvi}"
+			th:object="${yayinEvi}" method="POST">
 
 			<input type="text" th:field="*{publisherName}"
 				placeholder="Yayın evi İsmi" class="form-control mb-4 col-4"

@@ -50,3 +50,9 @@ For admin use
 
 For member use
 `register as a member`
+
+
+### Notes
+
+* In the book update section, the author and publishing house id number appears in the publishing house and author lines. If you want to update the publishing house or author, you should first look at the publishing house or author list and look at the id you want to update from there.
+* When we delete the book in the book deletion section, it also deletes the publishing house. After the book is deleted, it should be added again from the add publishing house section.

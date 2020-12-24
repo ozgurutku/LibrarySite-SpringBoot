@@ -45,6 +45,8 @@ public class KitapServiceImpl implements KitapService {
 		Kitap kitap = null;
 		if (optional.isPresent()) {
 			kitap = optional.get();
+			System.out.println(kitap.getAuthor());
+			System.out.println(kitap.getPublisher());
 		} else {
 			throw new RuntimeException("Kitap bulunamadı id:" + id);
 		}

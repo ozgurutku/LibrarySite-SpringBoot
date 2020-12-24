@@ -5,9 +5,9 @@
 		<h1>Kitap Listesi</h1>
 		<hr>
 		<table border="1" class="table table-striped table-responsive-md">
-			<thead th:replace="arka.html :: fields(theadFields)">
+			<thead th:replace="table.html :: fields(theadFields)">
 			</thead>
-			<tbody th:replace="arka.html :: tableBody(listKitap=${listKitap})">
+			<tbody th:replace="table.html :: tableBody(listKitap=${listKitap})">
 			</tbody>
 		</table>
 	</div>
